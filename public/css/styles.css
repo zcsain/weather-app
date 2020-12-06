@@ -1,0 +1,85 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Fredoka One', cursive;
+}
+
+img {
+  height: 2.5rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.content {
+  flex: 1 0 auto;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+
+.top-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.footer {
+  flex-shrink: 0;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 15px;
+  color: #FFFFFF;
+  background-color: #097AF7;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.card {
+  width: 18rem;
+}
+
+.card-header p {
+  display: inline;
+}
+
+.header-size {
+  font-size: 1.35rem;
+}
+
+/*media querys*/
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+@media (max-width: 1207px) {
+  h1 {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 991px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 40px;
+  }
+}
