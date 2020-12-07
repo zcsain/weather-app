@@ -13,7 +13,8 @@ h1 {
 }
 
 img {
-  height: 2.5rem;
+  height: 2.25rem;
+  filter: contrast(200%);
 }
 
 .hidden {
@@ -43,6 +44,10 @@ img {
 
 .card {
   width: 18rem;
+}
+
+.card-header, .card-footer {
+  background-color: #eaeaea;
 }
 
 .card-header p {

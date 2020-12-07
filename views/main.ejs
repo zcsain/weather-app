@@ -5,20 +5,20 @@
 </div>
 
 <!-- Input container -->
-<div class="container top-container pb-3">
+<div class="container top-container pb-3 mb-4">
   <form action="/" method="post">
 
     <div class="input-group">
 
       <!-- City input -->
-      <input type="text" class="form-control" name="cityInput" placeholder="City, Address">
+      <input type="text" class="form-control" name="cityInput" placeholder="City, Address" autocomplete="off" autofocus>
 
       <!-- Unit input -->
       <div class="input-group-append">
-        <select name="unitInput" class="browser-default custom-select" style="border-radius: 0; border-left: none;">
-          <option selected value="metric">Celsius, ° C</option>
-          <option value="imperial">Fahrenheit, ° F</option>
-          <option value="kelvin">Kelvin, ° K</option>
+        <select id="mySelect" name="unitInput" class="browser-default custom-select" style="border-radius: 0; border-left: none;">
+          <option <%= selector1 %> value="metric">Celsius, ° C</option>
+          <option <%= selector2 %> value="imperial">Fahrenheit, ° F</option>
+          <option <%= selector3 %> value="kelvin">Kelvin, ° K</option>
         </select>
         <button class="btn btn-primary" type="submit">Search</button>
       </div>
@@ -28,53 +28,24 @@
 </div>
 
 <!-- Render/content container -->
-<div class="container-fluid mt-4 content hidde">
+<div id="content-container" class="container-fluid mt-4 content <%= containerVis %>">
 
-  <div class="row justify-content-center">
+  <div class="row mx-5 justify-content-center">
 
     <!-- Today card -->
-    <div class="col-auto mb-3">
-      <div class="card h-100 bg-ligh border-dark">
-        <div class="card-header d-flex justify-content-between">
-          <div class="header-size" style="font-weight: bold;">Monday</div>
-          <!-- <div class="text-muted header-size">05.12</div> -->
-          <div class="text-muted header-size">5 Dec</div>
-        </div>
-        <ul class="list-group list-group-flush" style="border-top: none">
-          <li class="list-group-item px-0 py-0">
-            <div class="card-body">
-              <span>
-                <h5 class="card-subtitle mb-2" style="display:inline;">Morning</h6>
-                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="img">
-              </span>
-              <!-- <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="img"> -->
-              <p class="card-text">Some quick example text.</p>
-            </div>
-          </li>
-          <li class="list-group-item px-0 py-0">
-            <div class="card-body">
-              <span>
-                <h5 class="card-subtitle mb-2" style="display:inline;">Day</h6>
-                  <img src="" alt="img">
-              </span>
-              <p class="card-text">Some quick example text.</p>
-            </div>
-          </li>
-          <li class="list-group-item px-0 py-0">
-            <div class="card-body">
-              <span>
-                <h5 class="card-subtitle mb-2" style="display:inline;">Night</h6>
-                  <img src="" alt="img">
-              </span>
-              <p class="card-text">Some quick example text.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <% if (daysList !== []) { %>
+    <%- include("partials/today", {daysList: daysList}) %>
+    <% } else { %>
+    <% console.log("daysList empty!"); %>
+    <% } %>
 
-    <% for (i = 1; i < 5; i++) { %>
-      <%- include("partials/card") -%>
+    <!-- All other days cards -->
+    <% if (daysList !== []) { %>
+    <% for (i = 1; i < 8; i++) { %>
+    <%- include("partials/card") %>
+    <% } %>
+    <% } else { %>
+    <% console.log("daysList empty!"); %>
     <% } %>
 
   </div> <!-- Top level row -->

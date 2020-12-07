@@ -1,12 +1,7 @@
 // THIS IS THE WAY
 module.exports = {
-  processData: processData
+  extractDays: extractDays
 };
-
-function processData(data) {
-
-  return getDate(data);
-}
 
 function getWeekday(timestamp) {
 
@@ -45,9 +40,43 @@ function extractDays(data) {
    *
    * @param {JSON} data - JSON object
    */
+  let daysList = [];
+  let days = data.daily;
 
+  days.forEach(function(day) {
 
+    let timestamp = day.dt;
 
+    let dayObj = {
+      weekday: getWeekday(timestamp),
+      date: getDate(timestamp),
+      morning: {
+        temp: Math.trunc(day.temp.morn),
+        feels: Math.trunc(day.feels_like.morn)
+      },
+      day: {
+        temp: Math.trunc(day.temp.day),
+        feels: Math.trunc(day.feels_like.day)
+      },
+      night: {
+        temp: Math.trunc(day.temp.night),
+        feels: Math.trunc(day.feels_like.night)
+      },
+      weather: {
+        description: capitalizeFirstLetter(day.weather[0].description),
+        iconUrl: `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`
+      }
+
+    };
+
+    daysList.push(dayObj);
+  })
+
+  return daysList;
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function parseDMS(input) {

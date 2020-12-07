@@ -1,0 +1,50 @@
+<div class="col-auto mb-3">
+  <div class="card h-100 bg-ligh border-dark">
+    <div class="card-header d-flex justify-content-between">
+
+      <div class=" card-body px-0 py-0">
+        <div class="header-size d-inline" style="font-weight: bold;"> <%= daysList[0].weekday %> </div>
+      </div>
+      <div class="text-muted header-size"> <%= daysList[0].date %> </div>
+
+    </div>
+    <ul class="list-group list-group-flush" style="border-top: none">
+
+      <li class="list-group-item px-0 py-0">
+        <div class="card-body">
+          <span>
+            <h5 class="card-subtitle mb-2" style="display:inline;">Morning</h5>
+            <h5 class="d-inline pl-2"> <%= daysList[0].morning.temp %>°</h5>
+            <p class="d-inline text-muted">/ feels: <%= daysList[0].morning.feels %>°</p>
+          </span>
+        </div>
+      </li>
+
+      <li class="list-group-item px-0 py-0">
+        <div class="card-body">
+          <span>
+            <h5 class="card-subtitle mb-2" style="display:inline;">Day</h5>
+            <h5 class="d-inline pl-2"> <%= daysList[0].day.temp %>°</h5>
+            <p class="d-inline text-muted">/ feels: <%= daysList[0].day.feels %>°</p>
+          </span>
+        </div>
+      </li>
+
+      <li class="list-group-item px-0 py-0">
+        <div class="card-body">
+          <span>
+            <h5 class="card-subtitle mb-2" style="display:inline;">Night</h5>
+            <h5 class="d-inline pl-2"> <%= daysList[0].night.temp %>°</h5>
+            <p class="d-inline text-muted">/ feels: <%= daysList[0].night.feels %>°</p>
+          </span>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="card-footer text-muted" style="border-top: none">
+      <%= daysList[0].weather.description %>
+      <img class="d-inline" src="<%= daysList[0].weather.iconUrl %>" alt="img">
+    </div>
+  </div>
+</div>
