@@ -7,7 +7,7 @@ Enter city name or address in the search field, choose your preferred unit and c
 Sample:
 ![](weather-app-demo.gif)
 
-Live app deployed to Heroku: [Weather App](https://boiling-coast-44144.herokuapp.com/)
+Live app deployed to Heroku: [Weather App](https://boiling-coast-44144.herokuapp.com/) (if the app was not used for a while heroku needs few more seconds to reinitialize the app)
 
 ## APIs used
   - [Open Weather](https://openweathermap.org/)
